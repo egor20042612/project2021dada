@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Проект</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <style>
+    body {
+      background-color: #1bcf15;
+      font-family: impact;
+    }
+
+    .row {
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    .myCard {
+      background-color: #C7F8F8;
+      border-radius: 0.25rem;
+      box-shadow: 1px 1px 7px #84b4b4 !important;
+    }
+
+    a {
+      color: #329C9C;
+      position: relative;
+    }
+
+    a:hover {
+      color: #84B4B4;
+    }
+
+    a::after {
+      content: '';
+      position: absolute;
+      background-color: #329C9C;
+      height: 1px;
+      width: 0;
+      bottom: 0;
+      left: 0;
+      transition-duration: .5s;
+    }
+
+    a:hover::after {
+      width: 100%;
+    }
+
+    button {
+      background-color: #84B4B4 !important;
+      border-color: #84B4B4 !important;
+    }
+
+    button:hover {
+      background-color: #329C9C !important;
+      border-color: #329C9C !important;
+    }
+
+    .search-container {
+      width: 100%;
+      padding-top: 10px;
+      padding-right: 5px;
+      padding-left: 5px;
+      padding-bottom: 5px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    button:disabled {
+      background-color: grey;
+      cursor: wait;
+    }
+
+    button:hover:disabled {
+      background-color: grey;
+      cursor: wait;
+    }
+
+    .crest {
+      transition-duration: 0.5s;
+    }
+
+    .crest:hover {
+      transform: rotate(180deg);
+    }
+
+    .button-clear {
+      background-color: rgba(0, 0, 0, 0) !important;
+      border-radius: 5px !important;
+      transition-duration: 0.3s;
+      cursor: pointer;
+    }
+
+    .button-clear--red {
+      border-color: rgba(255, 0, 0, 0.5) !important;
+      color: rgba(255, 0, 0, 0.5) !important;
+    }
+
+    .button-clear--red:hover {
+      border-color: rgba(255, 0, 0, 1) !important;
+      color: rgba(255, 0, 0, 1) !important;
+      background-color: rgba(0, 0, 0, 0) !important;
+    }
+
+    .button-clear--green {
+      border-color: rgba(0, 255, 0, 0.5) !important;
+      color: rgba(0, 255, 0, 0.5) !important;
+    }
+
+    .button-clear--green:hover {
+      border-color: rgba(0, 255, 0, 1) !important;
+      color: rgba(0, 255, 0, 1) !important;
+      background-color: rgba(0, 0, 0, 0) !important;
+    }
+
+    .category {
+      text-align: center;
+      padding-top: 3px;
+      cursor: pointer;
+    }
+
+    .category--selected {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .more {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      background: linear-gradient(0deg, white, transparent);
+      bottom: 0;
+      left: 0;
+      pointer-events: none;
+      padding-top: 200px;
+      right: 0;
+    }
+
+    .button-without-effect {
+      background-color: white !important;
+    }
+
+    .button-without-effect:hover {
+      background-color: white !important;
+    }
+
+    h5 {
+      text-shadow: 0px 0px black;
+      transition: 1s;
+    }
+
+    h5:hover {
+      text-shadow: 5px 5px red;
+    }
+  </style>
+</head>
+
+<body id="body">
+  <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" id="modal-header">
+          <h5 class="modal-title" id="modal-label"></h5>
+          <button type="button" class="close button-without-effect" onClick="hideModal()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onClick="hideModal()">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="root"></div>
+</body>
+<script src="{{ url_for('static', filename='index.js') }}"></script>
+
+</html>
